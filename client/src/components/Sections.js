@@ -23,12 +23,10 @@ const labeling = [
 
 
 
-const Sections = () => {
-
-  const [exchangeDatas, setExchangeDatas] = useState({});
+const Sections = (props) => {
+  const {todosDB, setTodosDB, exchangeDatas, setExchangeDatas, draggingItemSecNum} = props;
   const [removeDatas, setRemoveDatas] = useState({});
   // 요청의 결과 - 결과물
-  const [todosDB, setTodosDB] = useState([]);
 
 
   const getTodosDB = async () => {
@@ -48,15 +46,15 @@ const Sections = () => {
   };
 
 
+
   useEffect(() => {
     if (todosDB.length === 0){
       setTodosFromServer();
     } else if (Object.keys(exchangeDatas).length !== 0){
-      
       setTodosDB(todosDB.filter(todo => todo.todoId !== exchangeDatas.todoId))
-      // setTodosDB(prevstate => prevstate.concat(exchangeDatas));
+      setTodosDB(prevstate => prevstate.concat(exchangeDatas));
     } 
-  },[exchangeDatas])
+  },[])
 
   useEffect(() =>{
     if (Object.keys(removeDatas).length !== 0){
@@ -69,7 +67,6 @@ const Sections = () => {
   useEffect(() => {
     socket.on('create', function(data){
       if (data !== todosDB){
-        console.log('헬로')
         setTodosDB(prevstate => prevstate.concat(data));
       } else{
         return;
@@ -77,30 +74,38 @@ const Sections = () => {
     })
   },[]);
 
-  socket.once('delete', function(data){
-    
-    if (Object.keys(data).length !== 0){
-      setTodosDB(todosDB.filter(todo => todo.todoId !== data.todoId))
-    };
-  });
+  useEffect(() => {
+    socket.on('delete', function(data){
+      if (Object.keys(data).length !== 0){
+        setTodosDB(todosDB.filter(todo => todo.todoId !== data.todoId))
+      };
+    });
+  },[todosDB]);
 
-  socket.once('change', function(data){
-    
-    if (Object.keys(data).length !== 0){
-      setTodosDB(todosDB.filter(todo => todo.todoId !== data.todoId))
-      setTodosDB(prevstate => prevstate.concat(data));
-    };
-  });
+  
+  useEffect(() => {
+    socket.on('change', function(data){
+      if (Object.keys(data).length !== 0){
 
+        const changeTodoItem = todosDB.filter(todo => todo.todoId !== data.todoId)
+
+        setTodosDB(changeTodoItem);
+        setTodosDB(prevstate => prevstate.concat(data));
+      };
+    });
+  },[todosDB]);
+  
+
+  // console.log('aaaaa',todosDB);
 
   return (
     labeling.map(
     (label, index) =>(
       <OneSecTodo
-      setTodosDB={setTodosDB}
       socket={socket}
       todosDB={todosDB}
       exchangeDatas={exchangeDatas}
+      draggingItemSecNum={draggingItemSecNum}
       setExchangeDatas={setExchangeDatas}
       setRemoveDatas={setRemoveDatas}
       key={`section-${index}`}

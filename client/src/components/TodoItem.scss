@@ -1,16 +1,18 @@
 .todo-item {
     padding: 1rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
     margin: 0 auto; /* 페이지 중앙 정렬 */
     align-items: center; /* 세로 가운데 정렬 */
     justify-content: space-between;
-    cursor: pointer;
     transition: all 0.15s;
     user-select: none;
     width: 80%;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 2px 6px rgba(0,0,0,0.23); /* 그림자 */ 
-    border-left: 6px solid #02ddff;
-    border-radius: 3px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.23); /* 그림자 */ 
+    border-radius: 8px;
+    background-color: white;
+    margin-bottom: 15px;
     
     .remove {
       color: #e64980;
@@ -23,6 +25,7 @@
       background-color: #fcd9d9;
       width: 20px;
       height: 20px;
+      cursor: pointer;
     }
   }
 
@@ -47,7 +50,7 @@
   }
   
   .todo-content{
-    font-size: 30px;
+    font-size: 20px;
   }
 
   // .checked {

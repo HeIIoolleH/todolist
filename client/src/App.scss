@@ -1,9 +1,6 @@
 body {
-  background: rgb(227, 245, 245);
-  background-size: cover;
+  background-image: url(https://trello-backgrounds.s3.amazonaws.com/SharedBackground/2263x1600/d429fd5f8232acb3736d532157c67bd0/photo-1662476894382-088ef55f059c.jpg);
   background-repeat: no-repeat;
-  width: 100vw;
-  height: 100vh;
 }
 
 .todolist{
@@ -17,9 +14,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 1700px;
+  width: 1200px;
   margin: 0 auto;
-  background-color: rgb(218, 236, 236);
   border-radius: 10px;
   margin-top: 5rem;
 }
@@ -35,7 +31,7 @@ body {
 }
 
 .title {
-  color: rgb(55, 53, 47); 
+  color: rgb(255, 255, 255); 
   font-weight: 700; 
   line-height: 1.2; 
   font-size: 70px; 
@@ -43,18 +39,15 @@ body {
   align-items: center; 
   width: 100%;
   text-align: center;
-  background-color: rgb(245, 252, 218);
-  padding: 50px;
-  padding-bottom: 0px;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
 }
 
 .content{
+  margin-top: 20px;
   display: flex;
-  background: rgb(245, 252, 218);
   width:100%;
-  padding: 50px;
+  justify-content: space-between;
   padding-top: 0px;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;

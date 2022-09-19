@@ -1,13 +1,13 @@
 import React from 'react';
-import './Form.css'
+import './Form.scss'
 
 const Form = ({value, onChange, onCreate, onKeyPress}) => {
     return (
         <div className='form'>
-            <input value={value} onChange={onChange} onKeyPress={onKeyPress}/>
             <div className='create-button'  onClick={onCreate}>
-            추가
+            +
             </div>
+            <input className= 'input-box' value={value} onChange={onChange} onKeyPress={onKeyPress}/>
         </div>
         );
     };

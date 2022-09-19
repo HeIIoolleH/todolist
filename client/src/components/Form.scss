@@ -1,0 +1,32 @@
+.form {
+    display: flex;
+    width: 100%;
+}
+
+.form input {
+    flex: 1;
+    font-size: 1.25rem;
+    outline: none;
+    border: none;
+    width: 60%;
+}
+
+.create-button {
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    margin-right: 0.3rem;
+    background-color: #ebecf0;
+    border-radius: 3px;
+    color:rgb(60, 60, 60);
+    font-weight: 600;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.create-button:hover {
+    background: #babbbe;
+}
+
+.input-box{
+    border-radius: 4px;
+}
