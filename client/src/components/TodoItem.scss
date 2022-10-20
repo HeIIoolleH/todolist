@@ -13,7 +13,8 @@
     border-radius: 8px;
     background-color: white;
     margin-bottom: 15px;
-    
+    word-break:break-word;
+      
     .remove {
       color: #e64980;
       font-weight:700;
@@ -21,10 +22,8 @@
       opacity: 0;
       font-size: 20px;
       line-height: 20px;
-      border: 3px solid #e64980;
-      background-color: #fcd9d9;
-      width: 20px;
-      height: 20px;
+      width: 30px;
+      height: 30px;
       cursor: pointer;
     }
   }

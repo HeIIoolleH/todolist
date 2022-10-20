@@ -2,17 +2,7 @@ import React, {useState} from 'react';
 import {useEffect} from 'react';
 import OneSecTodo from './OneSecTodo';
 import axios from 'axios';
-import { io } from "socket.io-client";
 
-const socket = io.connect("http://192.168.0.14:8002",{transports : ['websocket']},{path:'/socket.io'});
-    
-socket.on("connection",()=> {
-  console.log("connection server");
-})
-
-// socket.emit("message", "핑")
-// socket.on("message", function(req){
-// })
 
 const labeling = [
   {secId: 1, title:"To Do"}, 
@@ -24,7 +14,7 @@ const labeling = [
 
 
 const Sections = (props) => {
-  const {todosDB, setTodosDB, exchangeDatas, setExchangeDatas, draggingItemSecNum} = props;
+  const {todosDB, setTodosDB, exchangeDatas, setExchangeDatas, draggingItemSecNum, socket} = props;
   const [removeDatas, setRemoveDatas] = useState({});
   // 요청의 결과 - 결과물
 

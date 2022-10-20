@@ -8,11 +8,6 @@ import { Droppable, Draggable } from "react-beautiful-dnd";
 const TodoItemList = (props) => {
   const {secId, todos, onRemove} = props;
 
-  
-
-
-
-
   const todoList = todos.filter(obj => obj.state === secId).map(
     ({todoId, content}, index) => (
       <Draggable key={todoId} draggableId={todoId}>
@@ -20,8 +15,7 @@ const TodoItemList = (props) => {
           <div
             ref={provided.innerRef}
             {...provided.draggableProps}
-            {...provided.dragHandleProps}
-          >
+            {...provided.dragHandleProps}>
               <TodoItem
                 id={todoId}
                 content={content}
@@ -36,6 +30,7 @@ const TodoItemList = (props) => {
   );
 
 
+  
   return (
     // <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId={secId.toString()}>

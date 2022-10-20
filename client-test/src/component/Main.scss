@@ -6,12 +6,6 @@ body {
 
 .todolist{
   display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.todoListContent{
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -21,15 +15,6 @@ body {
   margin-top: 5rem;
 }
 
-.todoImage{
-  // position: absolute; 
-  top: 0px; 
-  left: 0px; 
-  opacity: 1; 
-  width: 5%; 
-  height: 5%;
-  padding: 1rem;
-}
 
 .title {
   color: rgb(255, 255, 255); 
@@ -44,7 +29,7 @@ body {
   border-top-right-radius: 30px;
 }
 
-.content{
+.section-content{
   margin-top: 20px;
   display: flex;
   width:100%;
@@ -53,4 +38,3 @@ body {
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
 }
-

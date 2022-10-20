@@ -55,6 +55,7 @@ function OneSecTodo(props) {
     // setSectionTodos(prevState => prevState.concat(initialDataForm));      // 권장하지않는 방법 : setSectionTodos(sectionTodos.concat(initialDataForm))
     setExchangeDatas(initialDataForm);
     socket.emit('create', initialDataForm);
+    // socket.off('create');
     setInput('');
   }
 
@@ -72,6 +73,7 @@ function OneSecTodo(props) {
     const removingData = sectionTodos.find(todo => todo.todoId === todoId)
     setRemoveDatas(removingData);
     socket.emit('delete', removingData);
+    socket.off('delete');
   };
 
 

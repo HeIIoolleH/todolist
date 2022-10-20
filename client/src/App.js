@@ -15,6 +15,7 @@ socket.on("connection",()=> {
 
 
 const App = () => {
+  console.log(socket);
 
   const [todosDB, setTodosDB] = useState([]);
   const [exchangeDatas, setExchangeDatas] = useState({});

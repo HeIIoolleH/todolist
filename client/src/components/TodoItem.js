@@ -1,5 +1,6 @@
 import React from "react";
 import './TodoItem.scss';
+import {RiDeleteBinLine} from 'react-icons/ri';
 
 const TodoItem = (props) => {
     const {content, id, onRemove } = props || {};
@@ -10,10 +11,12 @@ const TodoItem = (props) => {
             <div className={`todo-content`}>
                 <div>{content}</div>
             </div>
-            <div className="remove" onClick={(e) => {
+            <div  onClick={(e) => {
                 e.stopPropagation(); // onToggle 이 실행되지 않도록 함
                 onRemove(id)}
-            }>X</div>
+            }>
+                <RiDeleteBinLine className="remove"/>
+            </div>
         </div>
     );
 }

@@ -39,6 +39,7 @@ app.get('/',function(req, res){
 });
 
 io.on('connection',function(socket){
+  console.log(1234);
 
   socket.on('create', function(createTodo){
     io.emit('create',createTodo);
@@ -68,18 +69,21 @@ http.listen(8002, function() {
 // *********************************************
 app.post('/save', (req, res) => {
   const saveTodo = req.body
-  saveTodos(saveTodo);
+  const todos = saveTodos(saveTodo);
+  res.send({todos});
 });
 
 app.post('/delete', (req, res) => {
   const deleteTodo = req.body
-  deleteTodos(deleteTodo);
+  const todos = deleteTodos(deleteTodo);
+  res.send({todos});
 });
 
 
 app.post('/update', (req, res) => {
   const updateTodo = req.body
-  updateTodos(updateTodo);
+  const todos = updateTodos(updateTodo);
+  res.send({todos});
 });
 
 
